@@ -1,10 +1,10 @@
-﻿int secretNumber = 42;
+﻿Random random = new Random();
+int secretNumber = random.Next(1, 101);
 
-Console.WriteLine("Psst! Hey you! Can you guess the secret number? I'll give you have 4 chances ;)");
+Console.WriteLine("Psst! Hey you! Can you guess the secret number? I'll give you 4 chances ;)");
 
 for (int i = 0; i < 4; i++)
 {
-    Console.Write($"Attempt {i + 1}: ");
     int.TryParse(Console.ReadLine(), out int playerGuess);
 
     if (playerGuess == secretNumber)
@@ -14,6 +14,14 @@ for (int i = 0; i < 4; i++)
     }
     else
     {
-        Console.WriteLine($"Ha! You guessed {playerGuess}. That's not even close!");
+        int guessesLeft = 3 - i;
+        if (guessesLeft > 0)
+        {
+            Console.WriteLine($"Ha! You guessed {playerGuess}? That's not even close! You have {guessesLeft} guesses left.");
+        }
+        else
+        {
+            Console.WriteLine($"Ha! You guessed {playerGuess}? Sadly, that is incorrect and you've used up all your chances. Bye now!");
+        }
     }
 }
