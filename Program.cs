@@ -1,2 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿Console.WriteLine("Can you guess the secret number?");
+int.TryParse(Console.ReadLine(), out int guess);
+Console.WriteLine($"You guessed: {guess}");
