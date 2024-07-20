@@ -5,6 +5,7 @@ Console.WriteLine("Psst! Hey you! Can you guess the secret number? I'll give you
 
 for (int i = 0; i < 4; i++)
 {
+    Console.Write($"Attempt {i + 1}: ");
     int.TryParse(Console.ReadLine(), out int playerGuess);
 
     if (playerGuess == secretNumber)
@@ -15,13 +16,23 @@ for (int i = 0; i < 4; i++)
     else
     {
         int guessesLeft = 3 - i;
-        if (guessesLeft > 0)
+
+        if (playerGuess > secretNumber)
         {
-            Console.WriteLine($"Ha! You guessed {playerGuess}? That's not even close! You have {guessesLeft} guesses left.");
+            Console.WriteLine($"Ha! You guessed {playerGuess}. That's too high!");
         }
         else
         {
-            Console.WriteLine($"Ha! You guessed {playerGuess}? Sadly, that is incorrect and you've used up all your chances. Bye now!");
+            Console.WriteLine($"Ha! You guessed {playerGuess}. That's too low!");
+        }
+
+        if (guessesLeft > 0)
+        {
+            Console.WriteLine($"You have {guessesLeft} guesses left.");
+        }
+        else
+        {
+            Console.WriteLine("You've used all your chances. Bye now!");
         }
     }
 }
