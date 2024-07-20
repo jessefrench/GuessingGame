@@ -1,6 +1,6 @@
 ﻿int secretNumber = 42;
 
-Console.WriteLine("Can you guess the secret number? You have 4 attempts.");
+Console.WriteLine("Psst! Hey you! Can you guess the secret number? I'll give you have 4 chances ;)");
 
 for (int i = 0; i < 4; i++)
 {
@@ -9,11 +9,11 @@ for (int i = 0; i < 4; i++)
 
     if (playerGuess == secretNumber)
     {
-        Console.WriteLine("Wow, you actually got it right. How did you do that? Are you cheating?");
+        Console.WriteLine($"Wow, you guessed {playerGuess}. That's correct... How did you do that? Are you cheating?");
         break;
     }
     else
     {
-        Console.WriteLine("Ha! Not even close.");
+        Console.WriteLine($"Ha! You guessed {playerGuess}. That's not even close!");
     }
 }
